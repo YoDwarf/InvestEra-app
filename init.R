@@ -1,4 +1,4 @@
-my_packages = c("shinyMobile", "dplyr")
+my_packages = c("shinyMobile", "magrittr")
 
 install_if_missing = function(p) {
   if(p %in% rownames(installed.packages() == FALSE)) {
