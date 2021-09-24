@@ -1,11 +1,11 @@
 #загрузка аналитики
-analytics <- as_tibble(read.csv("analytics_USA.csv"))
+analytics <- read.csv("analytics_USA.csv")
 
 analytics$Дата.поста <- as.Date(analytics$Дата.поста)
 analytics <- filter(analytics[order(analytics$Дата.поста),])
 
 #загрузка компаний
-companies <- as_tibble(read.csv("companies.csv"))
+companies <- read.csv("companies.csv")
 
 companies$Дата <- as.Date(companies$Дата)
 companies$Дата.идеи <- as.Date(companies$Дата.идеи)
