@@ -1,22 +1,22 @@
 #загрузка аналитики
-analytics <- read.csv("analytics_USA.csv")
+analytics <- dplyr::as_tibble(read.csv("analytics_USA.csv"))
 
 analytics$Дата.поста <- as.Date(analytics$Дата.поста)
-analytics <- filter(analytics[order(analytics$Дата.поста),])
+analytics <- dplyr::filter(analytics[order(analytics$Дата.поста),])
 
 #загрузка компаний
-companies <- read.csv("companies.csv")
+companies <- dplyr::as_tibble(read.csv("companies.csv"))
 
 companies$Дата <- as.Date(companies$Дата)
 companies$Дата.идеи <- as.Date(companies$Дата.идеи)
 companies$Дата.новинки <- as.Date(companies$Дата.новинки)
-sheet_companies <- filter(companies[order(companies$Название), c("Название", "Тикер", "Разбор", "Страна", "Сектор", "Индустрия", "Оценка", "Дата")])
+sheet_companies <- dplyr::filter(companies[order(companies$Название), c("Название", "Тикер", "Разбор", "Страна", "Сектор", "Индустрия", "Оценка", "Дата")])
 
 WL <- subset(companies, complete.cases(companies$Инвест.идея))
-sheet_WL <- filter(WL[order(WL$Дата.идеи), c("Название", "Тикер", "Инвест.идея", "Страна", "Сектор", "Индустрия", "Оценка", "Дата.идеи")])
+sheet_WL <- dplyr::filter(WL[order(WL$Дата.идеи), c("Название", "Тикер", "Инвест.идея", "Страна", "Сектор", "Индустрия", "Оценка", "Дата.идеи")])
 
 new <- subset(companies, complete.cases(companies$Новинка))
-sheet_new <- filter(new[order(new$Название), c("Название", "Тикер", "Новинка", "Страна", "Сектор", "Индустрия", "Оценка", "Дата.новинки")])
+sheet_new <- dplyr::filter(new[order(new$Название), c("Название", "Тикер", "Новинка", "Страна", "Сектор", "Индустрия", "Оценка", "Дата.новинки")])
 
 f7Page(
         options = list(theme = "auto", dark = FALSE, filled = TRUE, color = "#1d3557"),

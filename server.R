@@ -8,7 +8,7 @@ shinyServer(
                 analytic <- analytic
             } else {
                 analytic <- analytic %>%
-                    filter(
+                    dplyr::filter(
                         grepl(input$Тип, x = Тип)
                     )
             }
@@ -33,12 +33,12 @@ shinyServer(
                 company <- company
             } else if(input$Страна == "Прочие страны") {
                 company <- company %>% 
-                    filter(
+                    dplyr::filter(
                         !grepl(paste(c("США", "Россия", "Китай", "Германия"), collapse = "|"), x = Страна)
                     )
             } else {
                 company <- company %>%
-                    filter(
+                    dplyr::filter(
                         grepl(input$Страна, x = Страна)
                     )
             }
@@ -46,7 +46,7 @@ shinyServer(
                 company <- company
             } else {
                 company <- company %>%
-                    filter(
+                    dplyr::filter(
                         grepl(input$Сектор, x = Сектор)
                     )
             }
@@ -54,7 +54,7 @@ shinyServer(
                 company <- company
             } else {
                 company <- company %>%
-                    filter(
+                    dplyr::filter(
                         grepl(input$Сектор, x = Сектор)
                     )
             }
