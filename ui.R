@@ -19,7 +19,7 @@ new <- subset(companies, complete.cases(companies$Новинка))
 sheet_new <- filter(new[order(new$Название), c("Название", "Тикер", "Новинка", "Страна", "Сектор", "Индустрия", "Оценка", "Дата.новинки")])
 
 f7Page(
-        options = list(theme = "auto", dark = FALSE),
+        options = list(theme = "auto", dark = FALSE, filled = TRUE, color = "#1d3557"),
         f7TabLayout(
             navbar = f7Navbar(
                 title = tagList(f7Icon("paperplane"), "USA Markets App")
