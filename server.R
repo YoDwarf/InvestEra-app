@@ -1,3 +1,6 @@
+library(shinyMobile)
+library(dplyr)
+
 shinyServer(
     function(input, output) {
         #фильтр Аналитики
