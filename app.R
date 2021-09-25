@@ -24,7 +24,7 @@ sheet_new <- subset(new[order(new$Название), c("Название", "Ти
 
 shinyApp(
     ui = f7Page(
-        options = list(theme = "auto", dark = FALSE, filled = TRUE, color = "#1d3557"),
+        options = list(theme = "aurora", dark = FALSE, filled = TRUE, color = "#1d3557"),
         f7TabLayout(
             navbar = f7Navbar(
                 title = tagList(f7Icon("paperplane"), "USA Markets App")
@@ -35,17 +35,22 @@ shinyApp(
                     icon = f7Icon("square_list"),
                     active = TRUE,
                     f7Searchbar(id = "searchbar1", placeholder = "Поиск", options = list(searchContainer = ".shiny-html-output", searchIn = c(".item-title", ".item-subtitle"))),
-                    f7Picker(
+                    f7Select(
                         inputId = "Страна",
                         label = "Страна",
-                        choices = c("Все", "США", "Россия", "Китай", "Германия", "Прочие страны")
+                        choices = c("Все", "США", "Россия", "Китай", "Германия", "Прочие страны"),
+                        selected = "Все"
                     ),
-                    f7Picker(
+                    f7Select(
                         inputId = "Сектор",
                         label = "Сектор",
-                        choices = c("Все", sort(unique(sheet_companies$Сектор)))
+                        choices = c("Все", sort(unique(sheet_companies$Сектор))),
+                        selected = "Все"
                     ),
-                    uiOutput("table") %>% f7Found()
+                    uiOutput("table") %>% f7Found(),
+                    f7Block(
+                        f7Card("Ничего не найдено")
+                    ) %>% f7NotFound()
                 ), #страница с Компаниями
                 f7Tab(
                     tabName = "Инвест-идеи",
@@ -105,15 +110,18 @@ shinyApp(
                     tabName = "Аналитика",
                     icon = f7Icon("graph_circle"),
                     f7Searchbar(id = "searchbar4", placeholder = "Поиск", options = list(searchContainer = ".shiny-html-output", searchIn = ".item-title")),
-                    f7Picker(
+                    f7Select(
                         inputId = "Тип",
                         label = "Тип",
-                        choices = c("Все", sort(unique(analytics$Тип))
+                        choices = c("Все", sort(unique(analytics$Тип))),
+                        selected = "Все"
                         ),
-                    ),
-                    uiOutput("analytics")
-                ) #страница с Аналитикой
-            ) 
+                    uiOutput("analytics") %>% f7Found(),
+                    f7Block(
+                        f7Card("Ничего не найдено")
+                    ) %>% f7NotFound()
+                )  #страница с Аналитикой
+            )
         )
     ),
     server = function(input, output) {
