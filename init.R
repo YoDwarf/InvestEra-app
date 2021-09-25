@@ -1,7 +1,7 @@
 my_packages = c("shinyMobile", "dplyr")
 
 install_if_missing = function(p) {
-  if(p %in% rownames(installed.packages() == FALSE)) {
+  if(p %in% rownames(installed.packages())) {
     install.packages(p)
   }
 }
