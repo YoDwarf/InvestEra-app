@@ -1,11 +1,9 @@
-my_packages = "magrittr"
+my_packages = c("shinyMobile", "magrittr")
 
 install_if_missing = function(p) {
-  if(p %in% rownames(installed.packages())) {
+  if(p %in% rownames(installed.packages()) == FALSE) {
     install.packages(p)
   }
 }
-
-install.packages("shinyMobile_0.9.1.tar.gz", repos=NULL, type="source")
 
 invisible(sapply(my_packages, install_if_missing))
