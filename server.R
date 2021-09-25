@@ -1,5 +1,5 @@
 library(shinyMobile)
-library("dplyr")
+library(dplyr)
 
 shinyServer(
     function(input, output) {
