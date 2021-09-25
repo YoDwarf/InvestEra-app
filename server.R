@@ -1,5 +1,5 @@
 library(shinyMobile)
-library(dplyr)
+library(magrittr)
 
 shinyServer(
     function(input, output) {
@@ -11,7 +11,7 @@ shinyServer(
                 analytic <- analytic
             } else {
                 analytic <- analytic %>%
-                    dplyr::filter(
+                    subset(
                         grepl(input$Тип, x = Тип)
                     )
             }
@@ -36,12 +36,12 @@ shinyServer(
                 company <- company
             } else if(input$Страна == "Прочие страны") {
                 company <- company %>% 
-                    dplyr::filter(
+                    subset(
                         !grepl(paste(c("США", "Россия", "Китай", "Германия"), collapse = "|"), x = Страна)
                     )
             } else {
                 company <- company %>%
-                    dplyr::filter(
+                    subset(
                         grepl(input$Страна, x = Страна)
                     )
             }
@@ -49,7 +49,7 @@ shinyServer(
                 company <- company
             } else {
                 company <- company %>%
-                    dplyr::filter(
+                    subset(
                         grepl(input$Сектор, x = Сектор)
                     )
             }
@@ -57,7 +57,7 @@ shinyServer(
                 company <- company
             } else {
                 company <- company %>%
-                    dplyr::filter(
+                    subset(
                         grepl(input$Сектор, x = Сектор)
                     )
             }
