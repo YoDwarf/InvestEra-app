@@ -1,5 +1,5 @@
 library(shinyMobile)
-library(dplyr)
+library(tidyverse)
 
 shinyServer(
     function(input, output) {
