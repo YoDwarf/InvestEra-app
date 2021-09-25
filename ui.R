@@ -1,3 +1,7 @@
+library(shiny)
+library(shinyMobile)
+library(magrittr)
+
 #загрузка аналитики
 analytics <- read.csv("analytics_USA.csv")
 
