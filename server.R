@@ -1,6 +1,3 @@
-library(shinyMobile)
-library(magrittr)
-
 shinyServer(
     function(input, output) {
         #фильтр Аналитики
