@@ -1,3 +1,5 @@
+library(shiny)
+
 #загрузка аналитики
 analytics <- dplyr::as_tibble(read.csv("analytics_USA.csv"))
 
