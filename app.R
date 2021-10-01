@@ -45,7 +45,7 @@ sheet_new <- subset(new[order(new$Название), c("Название", "Ти
 
 shinyApp(
     ui = f7Page(
-        options = list(theme = "aurora", dark = FALSE, filled = TRUE, color = "#1d3557"),
+        options = list(theme = "auto", dark = FALSE, filled = TRUE, color = "#1d3557"),
         allowPWA = TRUE,
         f7TabLayout(
             navbar = f7Navbar(
