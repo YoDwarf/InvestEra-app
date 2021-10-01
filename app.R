@@ -58,11 +58,13 @@ shinyApp(
                     active = TRUE,
                     f7Searchbar(id = "searchbar1", placeholder = "Поиск", options = list(searchContainer = ".shiny-html-output", searchIn = c(".item-title", ".item-subtitle"))),
                     f7Card(
-                        f7Button("ads", "Наши каналы")
+                        f7Button("ads", "Наши каналы", color = "blue", fill = TRUE)
                     ),
                     f7Popup(
                         id = "popup",
                         title = "Наши каналы",
+                        swipeToClose = TRUE,
+                        closeButton = FALSE,
                         f7Card(
                             f7Link(ad$name[1], ad$link[1]),
                             ad$text[1]
