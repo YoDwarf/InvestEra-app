@@ -2,6 +2,27 @@ library(shiny)
 library(shinyMobile)
 library(magrittr)
 
+ad <- data.frame(
+    name = c(
+        "Инвестиции USA Markets",
+        "Аналитика USA MArkets",
+        "Инфографика USA Markets",
+        "YouTube: Инвестиции USA Markets"
+    ),
+    link = c(
+        "https://t.me/usamarke1",
+        "https://t.me/AnalyticsUSARussiaMarkets",
+        "https://t.me/infousamarket",
+        "https://www.youtube.com/channel/UCYtrhHbdHpCuYvVuf7CRXlw/featured"
+    ),
+    text = c(
+        "- разборы компаний из России, США, Китая, Германии и не только.",
+        "- анализ секторов, трендов мировой экономики и 5 публичных портфелей.",
+        "- фондовый рынок в диаграммах и графиках.",
+        "- качественные и проработанные видео с глубокой аналитикой."
+    )
+)
+
 #загрузка аналитики
 analytics <- read.csv("analytics_USA.csv")
 
@@ -36,6 +57,29 @@ shinyApp(
                     icon = f7Icon("square_list"),
                     active = TRUE,
                     f7Searchbar(id = "searchbar1", placeholder = "Поиск", options = list(searchContainer = ".shiny-html-output", searchIn = c(".item-title", ".item-subtitle"))),
+                    f7Card(
+                        f7Button("ads", "Наши каналы")
+                    ),
+                    f7Popup(
+                        id = "popup",
+                        title = "Наши каналы",
+                        f7Card(
+                            f7Link(ad$name[1], ad$link[1]),
+                            ad$text[1]
+                        ),
+                        f7Card(
+                            f7Link(ad$name[2], ad$link[2]),
+                            ad$text[2]
+                        ),
+                        f7Card(
+                            f7Link(ad$name[3], ad$link[3]),
+                            ad$text[3]
+                        ),
+                        f7Card(
+                            f7Link(ad$name[4], ad$link[4]),
+                            ad$text[4]
+                        )
+                    ),
                     f7Select(
                         inputId = "Страна",
                         label = "Страна",
@@ -216,6 +260,9 @@ shinyApp(
             } else {
                 f7Card("Компании с данными параметрами отсутствуют")
             }
+        })
+        observeEvent(input$ads, {
+            updateF7Popup(id = "popup")
         })
     }
 )
