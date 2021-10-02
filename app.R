@@ -62,22 +62,22 @@ shinyApp(
                     ),
                     f7Popup(
                         id = "popup",
-                        title = "Наши каналы",
+                        title = "Наши каналы (смахните страницу вниз, чтобы закрыть)",
                         swipeToClose = TRUE,
                         closeButton = FALSE,
-                        f7Card(
+                        f7Block(
                             f7Link(ad$name[1], ad$link[1]),
                             ad$text[1]
                         ),
-                        f7Card(
+                        f7Block(
                             f7Link(ad$name[2], ad$link[2]),
                             ad$text[2]
                         ),
-                        f7Card(
+                        f7Block(
                             f7Link(ad$name[3], ad$link[3]),
                             ad$text[3]
                         ),
-                        f7Card(
+                        f7Block(
                             f7Link(ad$name[4], ad$link[4]),
                             ad$text[4]
                         )
