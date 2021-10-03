@@ -1,7 +1,7 @@
 {
-  "name": "USA Markets App",
-  "short_name": "USA Markets",
-  "description": "USA Markets App",
+  "name": "USA Market App",
+  "short_name": "USA Market",
+  "description": "USA Market App",
   "lang": "en-US",
   "start_url": "/",
   "display": "standalone",
