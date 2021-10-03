@@ -11,10 +11,10 @@ image <- c(
 
 ad <- data.frame(
     name = c(
-        "Инвестиции USA Markets",
-        "Аналитика USA Markets",
-        "Инфографика USA Markets",
-        "YouTube: Инвестиции USA Markets"
+        "Инвестиции USA Market",
+        "Аналитика USA Market",
+        "Инфографика USA Market",
+        "YouTube: Инвестиции USA Market"
     ),
     link = c(
         "https://t.me/usamarke1",
@@ -56,7 +56,7 @@ shinyApp(
         allowPWA = TRUE,
         f7TabLayout(
             navbar = f7Navbar(
-                title = tagList(f7Icon("paperplane"), "USA Markets App")
+                title = tagList(f7Icon("paperplane"), "USA Market App")
             ),
             f7Tabs(
                 f7Tab(
