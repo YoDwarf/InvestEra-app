@@ -63,7 +63,7 @@ shinyApp(
                     tabName = "Компании",
                     icon = f7Icon("square_list"),
                     active = TRUE,
-                    f7Searchbar(id = "searchbar1", placeholder = "Поиск", options = list(searchContainer = ".shiny-html-output", searchIn = c(".item-title", ".item-subtitle"))),
+                    f7Searchbar(id = "searchbar1", placeholder = "Поиск", options = list(searchContainer = ".shiny-html-output", searchIn = c(".item-title", ".item-subtitle"), backdrop = FALSE)),
                     f7Card(
                         f7Button("ads", "Наши каналы", color = "blue", fill = TRUE)
                     ),
@@ -107,7 +107,7 @@ shinyApp(
                 f7Tab(
                     tabName = "Инвест-идеи",
                     icon = f7Icon("lightbulb"),
-                    f7Searchbar(id = "searchbar2", placeholder = "Поиск", options = list(searchContainer = ".list", searchIn = c(".item-title", ".item-subtitle"))),
+                    f7Searchbar(id = "searchbar2", placeholder = "Поиск", options = list(searchContainer = ".list", searchIn = c(".item-title", ".item-subtitle"), backdrop = FALSE)),
                     f7List(mode = "media",
                            lapply(1:nrow(sheet_WL), function(i) {
                                f7ListItem(
@@ -141,7 +141,7 @@ shinyApp(
                 f7Tab(
                     tabName = "Новинки",
                     icon = f7Icon("square_list", f7Badge("NEW", color = "red")),
-                    f7Searchbar(id = "searchbar3", placeholder = "Поиск", options = list(searchContainer = ".list", searchIn = c(".item-title", ".item-subtitle"))),
+                    f7Searchbar(id = "searchbar3", placeholder = "Поиск", options = list(searchContainer = ".list", searchIn = c(".item-title", ".item-subtitle"), backdrop = FALSE)),
                     f7List(mode = "media",
                            lapply(1:nrow(sheet_new), function(i) {
                                f7ListItem(
@@ -161,7 +161,7 @@ shinyApp(
                 f7Tab(
                     tabName = "Аналитика",
                     icon = f7Icon("graph_circle"),
-                    f7Searchbar(id = "searchbar4", placeholder = "Поиск", options = list(searchContainer = ".shiny-html-output", searchIn = ".item-title")),
+                    f7Searchbar(id = "searchbar4", placeholder = "Поиск", options = list(searchContainer = ".shiny-html-output", searchIn = ".item-title", backdrop = FALSE)),
                     f7Select(
                         inputId = "Тип",
                         label = "Тип",
