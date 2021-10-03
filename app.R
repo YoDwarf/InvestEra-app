@@ -27,7 +27,7 @@ ad <- data.frame(
 analytics <- read.csv("analytics_USA.csv")
 
 analytics$Дата.поста <- as.Date(analytics$Дата.поста)
-analytics <- subset(analytics[order(analytics$Дата.поста),])
+analytics <- subset(analytics[rev(order(analytics$Дата.поста)),])
 
 #загрузка компаний
 companies <- read.csv("companies.csv")
@@ -38,7 +38,7 @@ companies$Дата.новинки <- as.Date(companies$Дата.новинки)
 sheet_companies <- subset(companies[order(companies$Название), c("Название", "Тикер", "Разбор", "Страна", "Сектор", "Индустрия", "Оценка", "Дата")])
 
 WL <- subset(companies, complete.cases(companies$Инвест.идея))
-sheet_WL <- subset(WL[order(WL$Дата.идеи), c("Название", "Тикер", "Инвест.идея", "Страна", "Сектор", "Индустрия", "Оценка", "Дата.идеи")])
+sheet_WL <- subset(WL[rev(order(WL$Дата.идеи)), c("Название", "Тикер", "Инвест.идея", "Страна", "Сектор", "Индустрия", "Оценка", "Дата.идеи")])
 
 new <- subset(companies, complete.cases(companies$Новинка))
 sheet_new <- subset(new[order(new$Название), c("Название", "Тикер", "Новинка", "Страна", "Сектор", "Индустрия", "Оценка", "Дата.новинки")])
