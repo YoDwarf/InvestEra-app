@@ -5,7 +5,7 @@ library(magrittr)
 ad <- data.frame(
     name = c(
         "Инвестиции USA Markets",
-        "Аналитика USA MArkets",
+        "Аналитика USA Markets",
         "Инфографика USA Markets",
         "YouTube: Инвестиции USA Markets"
     ),
