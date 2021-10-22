@@ -176,7 +176,7 @@ shinyApp(
             )
         )
     ),
-    server = function(input, output) {
+    server = function(input, output, session) {
         #фильтр Аналитики
         analytics_filter <- reactive({
             analytic <- analytics
@@ -271,6 +271,7 @@ shinyApp(
         observeEvent(input$ads, {
             updateF7Popup(id = "popup")
         })
+        session$allowReconnect(TRUE)
     }
 )
 
