@@ -271,7 +271,7 @@ shinyApp(
         observeEvent(input$ads, {
             updateF7Popup(id = "popup")
         })
-        session$allowReconnect(TRUE)
+        session$allowReconnect("forced")
     }
 )
 
