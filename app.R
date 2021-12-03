@@ -128,9 +128,9 @@ shinyApp(
                         id = "popup",
                         title = "Наши каналы:",
                         swipeToClose = TRUE,
-                        closeButton = TRUE,
-                        animate = FALSE,
-                        fullsize = TRUE,
+                        closeButton = FALSE,
+                        animate = TRUE,
+                        fullsize = FALSE,
                         f7List(
                             mode = "media",
                             lapply(1:4, function(img) {
@@ -141,6 +141,9 @@ shinyApp(
                                     href = ad$link[img]
                                 )
                             })
+                        ),
+                        f7Block(
+                            "*смахните страницу вверх / вниз, чтобы ее закрыть"
                         )
                     ),
                     f7Select(
