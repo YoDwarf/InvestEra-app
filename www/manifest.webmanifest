@@ -1,11 +1,11 @@
 {
-  "name": "USA Market App",
-  "short_name": "USA Market",
-  "description": "USA Market App",
+  "name": "Invest Era App",
+  "short_name": "Invest Era",
+  "description": "Invest Era App",
   "lang": "en-US",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#313131",
+  "background_color": "#172339",
   "theme_color": "#ffffff",
   "icons": [
     {
